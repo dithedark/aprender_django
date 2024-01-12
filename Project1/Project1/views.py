@@ -4,11 +4,15 @@ from django.template import  Template,Context
 
 def saludo(request):
 
-    doc_externo=open("C:/Users/Diego/Desktop/app de programcacion/curso_completo_jango/Project1/Project1/plantillas/template.html")
+    name= ["Diego" , "Urbano"]
+    user="Dithedark"
+    TemasApd=["plantillas","bucles","condiciones","vista","despligue"]
+
+    doc_externo=open("C:/Users/Diego/Desktop/app de programcacion/curso_django/Project1/Project1/plantillas/template.html")
     plt=Template(doc_externo.read())
     doc_externo.close()
 
-    ctx= Context()
+    ctx= Context({"nombre":name[0],"apellido":name[1],"usuario":user,"Temas":TemasApd})
 
     documento=plt.render(ctx)
 

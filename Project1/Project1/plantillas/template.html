@@ -1,7 +1,27 @@
 <html>
     <body>
-        <h1>
-            esta es la plantilla del documento
+        <h1 style="color: cadetblue;">
+            esta es la plantilla del documento 
         </h1>
+        <p> nombre de la persona esta aprendiendo {{nombre}} {{apellido}} usuario {{usuario}}</p>
+        <p> <strong> Temas aprendidos hasta ahora </strong> </p>
+        <p>
+            <ul>
+            
+                {% if Temas %}        
+                    {% for Ten in Temas %}
+                
+                        <li>{{Ten}}</li>
+
+
+                    {% endfor %}
+                
+
+                {% else %}
+                    <p>no hay lista</p>
+                {% endif %}
+
+            </ul>    
+        </p>
     </body>
 </html>
