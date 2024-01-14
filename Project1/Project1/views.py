@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import  Template,Context
+from django.template import  loader
 
 def saludo(request):
 
@@ -8,12 +9,14 @@ def saludo(request):
     user="Dithedark"
     TemasApd=["plantillas","bucles","condiciones","vista","despligue"]
 
-    doc_externo=open("C:/Users/Diego/Desktop/app de programcacion/curso_django/Project1/Project1/plantillas/template.html")
-    plt=Template(doc_externo.read())
-    doc_externo.close()
+    #doc_externo=open("C:/Users/Diego/Desktop/app de programcacion/curso_django/Project1/Project1/plantillas/template.html")
+    #plt=Template(doc_externo.read())
+    #doc_externo.close()
 
-    ctx= Context({"nombre":name[0],"apellido":name[1],"usuario":user,"Temas":TemasApd})
+    
+    ctx= {"nombre":name[0],"apellido":name[1],"usuario":user,"Temas":TemasApd}
 
+    plt=loader.get_template('template.html')
     documento=plt.render(ctx)
 
     return HttpResponse(documento)
